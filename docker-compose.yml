@@ -6,6 +6,7 @@ services:
     build:
       context: .
       target: jupyter-notebook
+      network: host
     container_name: spark-jupyter
     volumes:
       - ./notebooks:/opt/notebooks
@@ -18,6 +19,7 @@ services:
     build:
       context: .
       target: pyspark
+      network: host
     image: spark-image
     entrypoint: ['./entrypoint.sh', 'master']
     healthcheck:
